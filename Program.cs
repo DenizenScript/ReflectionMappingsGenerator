@@ -81,7 +81,12 @@ foreach (string line in mappingsData.Replace("\r", "").Split('\n'))
     }
     else
     {
-        currentClass[line.Trim().After(' ').BeforeAndAfter(" -> ", out string after).Before('(')] = after;
+        string name = line.Trim().After(' ').BeforeAndAfter(" -> ", out string after);
+        if (name.Contains('('))
+        {
+            name = name.Before('(') + "_method";
+        }
+        currentClass[name] = after;
     }
 }
 #endregion
