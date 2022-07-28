@@ -115,7 +115,7 @@ foreach ((string className, List<string> set) in requiredLabels)
         }
     }
 }
-output.Append("\n}\n");
+output.Append("}\n");
 File.WriteAllText(file, output.ToString().Replace("\n", Environment.NewLine));
 Console.WriteLine($"Done! {success} gathered and {fail} failed");
 #endregion
